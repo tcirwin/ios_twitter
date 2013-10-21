@@ -10,4 +10,6 @@
 
 @interface TweetCell : UITableViewCell
 
+- (void)updateModel:(Tweet *)model;
+
 @end

@@ -14,4 +14,9 @@
 
 + (NSMutableArray *)tweetsWithArray:(NSArray *)array;
 
+- (NSString *)text;
+- (NSString *)timestamp;
+- (NSString *)username;
+- (NSURL *)userImageURL;
+
 @end
