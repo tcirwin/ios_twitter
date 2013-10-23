@@ -34,6 +34,8 @@
 		C9AE33AE1814A83900EDE4C6 /* TweetDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AE33AC1814A83900EDE4C6 /* TweetDetailViewController.xib */; };
 		C9AE33B01814B82300EDE4C6 /* business_cat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C9AE33AF1814B82300EDE4C6 /* business_cat.jpg */; };
 		C9AE33B31814B85A00EDE4C6 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE33B21814B85A00EDE4C6 /* Common.m */; };
+		C9AE33B71816183700EDE4C6 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9AE33B51816183700EDE4C6 /* ComposeViewController.m */; };
+		C9AE33B81816183700EDE4C6 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9AE33B61816183700EDE4C6 /* ComposeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,9 @@
 		C9AE33AF1814B82300EDE4C6 /* business_cat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = business_cat.jpg; sourceTree = "<group>"; };
 		C9AE33B11814B85A00EDE4C6 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		C9AE33B21814B85A00EDE4C6 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		C9AE33B41816183700EDE4C6 /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
+		C9AE33B51816183700EDE4C6 /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		C9AE33B61816183700EDE4C6 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		CCC1DF52D3B94E9285F4C2F7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -207,6 +212,9 @@
 				42CC89A717B0C31900B6D34B /* SignedOutVC.h */,
 				42CC89A817B0C31900B6D34B /* SignedOutVC.m */,
 				42CC89A917B0C31900B6D34B /* SignedOutVC.xib */,
+				C9AE33B41816183700EDE4C6 /* ComposeViewController.h */,
+				C9AE33B51816183700EDE4C6 /* ComposeViewController.m */,
+				C9AE33B61816183700EDE4C6 /* ComposeViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -343,6 +351,7 @@
 				C9AE33AE1814A83900EDE4C6 /* TweetDetailViewController.xib in Resources */,
 				42CC893617AF4C6A00B6D34B /* InfoPlist.strings in Resources */,
 				42CC893E17AF4C6B00B6D34B /* Images.xcassets in Resources */,
+				C9AE33B81816183700EDE4C6 /* ComposeViewController.xib in Resources */,
 				C9AE33B01814B82300EDE4C6 /* business_cat.jpg in Resources */,
 				42C55E07181209DE000F9FCF /* TweetCell.xib in Resources */,
 			);
@@ -404,6 +413,7 @@
 				42CC89B417B0D63C00B6D34B /* RestObject.m in Sources */,
 				42CC895D17AF6FBB00B6D34B /* TimelineVC.m in Sources */,
 				C9AE33AD1814A83900EDE4C6 /* TweetDetailViewController.m in Sources */,
+				C9AE33B71816183700EDE4C6 /* ComposeViewController.m in Sources */,
 				42CC893C17AF4C6B00B6D34B /* AppDelegate.m in Sources */,
 				42CC893817AF4C6B00B6D34B /* main.m in Sources */,
 			);

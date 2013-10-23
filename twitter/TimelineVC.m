@@ -44,12 +44,24 @@
     
     UINib *nibby = [UINib nibWithNibName:@"TweetCell" bundle:nil];
     [self.tableView registerNib:nibby forCellReuseIdentifier:@"TweetCell"];
+    
+    UIBarButtonItem *composeButton=[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(openComposeModal)];
+    
+    self.navigationItem.leftBarButtonItem = composeButton;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)openComposeModal
+{
+    ComposeViewController *compose = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" bundle:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:compose];
+    
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
