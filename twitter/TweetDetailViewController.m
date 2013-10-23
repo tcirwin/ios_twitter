@@ -10,6 +10,10 @@
 #import "Common.h"
 #import <UIImageView+AFNetworking.h>
 
+#define RETWEET 0
+#define REPLY 1
+#define FAVORITE 2
+
 @interface TweetDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -17,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (strong, nonatomic) Tweet *tweet;
+
+- (IBAction)tappedActionBar:(UISegmentedControl *)sender;
 
 @end
 
@@ -51,4 +57,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)retweet
+{
+    [[TwitterClient instance] reTweet:_tweet.tweetId success:^(AFHTTPRequestOperation *operation, id response) {
+        NSLog(@"Success!");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failure: retweeting tweet %@!", _tweet.tweetId);
+    }];
+}
+
+- (IBAction)tappedActionBar:(UISegmentedControl *)sender
+{
+    switch ([sender selectedSegmentIndex]) {
+        case RETWEET:
+            [self retweet];
+            break;
+        case REPLY:
+            //[self reply];
+            break;
+        case FAVORITE:
+            //[self favorite];
+            break;
+    }
+}
 @end

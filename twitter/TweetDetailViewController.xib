@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -56,12 +56,25 @@
                         <navigationItem title="Tweet" id="0xq-cm-WIY"/>
                     </items>
                 </navigationBar>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wXr-ul-7Rt">
+                    <rect key="frame" x="20" y="209" width="280" height="29"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <segments>
+                        <segment title="Retweet"/>
+                        <segment title="Reply"/>
+                        <segment title="Favorite"/>
+                    </segments>
+                    <connections>
+                        <action selector="tappedActionBar:" destination="-1" eventType="valueChanged" id="89e-Qv-0VG"/>
+                    </connections>
+                </segmentedControl>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="kdD-gd-Zkj" firstAttribute="leading" secondItem="6IG-rQ-UHX" secondAttribute="leading" id="1SG-aw-OZg"/>
                 <constraint firstItem="Sez-qf-jhn" firstAttribute="top" secondItem="YjH-mS-Xb1" secondAttribute="bottom" constant="6" id="9bN-e1-s5t"/>
                 <constraint firstItem="YjH-mS-Xb1" firstAttribute="trailing" secondItem="Sez-qf-jhn" secondAttribute="trailing" id="AVz-Kd-Lbp"/>
+                <constraint firstItem="wXr-ul-7Rt" firstAttribute="leading" secondItem="kdD-gd-Zkj" secondAttribute="leading" id="BTh-ph-rsx"/>
                 <constraint firstItem="kdD-gd-Zkj" firstAttribute="top" secondItem="6IG-rQ-UHX" secondAttribute="bottom" constant="8" id="Fu2-Jt-s6g"/>
                 <constraint firstItem="6IG-rQ-UHX" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="Qjy-w4-Bbs"/>
                 <constraint firstItem="2iv-Ta-Mge" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" id="QvO-20-Lsb"/>
@@ -70,10 +83,12 @@
                 <constraint firstItem="YjH-mS-Xb1" firstAttribute="leading" secondItem="6IG-rQ-UHX" secondAttribute="trailing" constant="10" id="YoT-Bg-YKU"/>
                 <constraint firstItem="kdD-gd-Zkj" firstAttribute="trailing" secondItem="Sez-qf-jhn" secondAttribute="trailing" id="ZrK-v9-wel"/>
                 <constraint firstItem="6IG-rQ-UHX" firstAttribute="top" secondItem="YjH-mS-Xb1" secondAttribute="top" constant="-2" id="aWX-TR-3gF"/>
+                <constraint firstItem="wXr-ul-7Rt" firstAttribute="top" secondItem="kdD-gd-Zkj" secondAttribute="bottom" constant="8" symbolic="YES" id="emI-f7-aZ3"/>
                 <constraint firstItem="Sez-qf-jhn" firstAttribute="leading" secondItem="6IG-rQ-UHX" secondAttribute="trailing" constant="10" id="jL4-Qu-zjI"/>
                 <constraint firstAttribute="trailing" secondItem="YjH-mS-Xb1" secondAttribute="trailing" constant="20" symbolic="YES" id="luK-kl-ZIF"/>
                 <constraint firstItem="6IG-rQ-UHX" firstAttribute="top" secondItem="2iv-Ta-Mge" secondAttribute="bottom" constant="22" id="mQS-MA-0ma"/>
                 <constraint firstItem="kdD-gd-Zkj" firstAttribute="centerX" secondItem="2iv-Ta-Mge" secondAttribute="centerX" id="oGI-VW-gkC"/>
+                <constraint firstItem="wXr-ul-7Rt" firstAttribute="trailing" secondItem="kdD-gd-Zkj" secondAttribute="trailing" id="r5D-KS-2ng"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
