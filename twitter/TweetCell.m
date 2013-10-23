@@ -14,7 +14,6 @@
 
 - (IBAction)handleTap:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;

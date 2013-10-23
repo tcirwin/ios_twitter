@@ -9,8 +9,11 @@
 #import "TimelineVC.h"
 #import "TweetCell.h"
 #import "TweetDetailViewController.h"
+#import "ComposeViewController.h"
 
-@interface TimelineVC ()
+@interface TimelineVC () {
+    TweetCell *templateTweet;
+}
 
 @property (nonatomic, strong) NSMutableArray *tweets;
 
@@ -28,6 +31,7 @@
         self.title = @"Twitter";
         
         [self reload];
+        templateTweet = [[TweetCell alloc] init];
     }
     return self;
 }
@@ -69,7 +73,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100.0f;
+    Tweet *tweet = self.tweets[indexPath.row];
+    CGSize size = [tweet.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue" size:17] constrainedToSize:CGSizeMake(246.0f, 300.0f) lineBreakMode:NSLineBreakByWordWrapping];
+    
+    return size.height + 40.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

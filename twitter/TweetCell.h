@@ -10,6 +10,8 @@
 
 @interface TweetCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
+
 - (void)updateModel:(Tweet *)model;
 
 @end
