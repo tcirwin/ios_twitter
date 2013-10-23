@@ -16,22 +16,33 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lul-hl-iV7">
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lul-hl-iV7">
                     <rect key="frame" x="0.0" y="17" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
                         <navigationItem title="Compose View" id="Zn6-4H-kh5"/>
                     </items>
                 </navigationBar>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w0V-v1-TYe">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0V-v1-TYe">
                     <rect key="frame" x="20" y="79" width="280" height="265"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="265" id="377-Sh-1L5"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="w0V-v1-TYe" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="DAO-nc-gE2"/>
+                <constraint firstItem="Lul-hl-iV7" firstAttribute="top" secondItem="1" secondAttribute="top" constant="17" id="G7d-es-BQG"/>
+                <constraint firstAttribute="trailing" secondItem="w0V-v1-TYe" secondAttribute="trailing" constant="20" symbolic="YES" id="UpD-BI-UyR"/>
+                <constraint firstItem="Lul-hl-iV7" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="XJT-6B-U4Q"/>
+                <constraint firstItem="Lul-hl-iV7" firstAttribute="centerX" secondItem="w0V-v1-TYe" secondAttribute="centerX" id="emH-44-0c2"/>
+                <constraint firstItem="w0V-v1-TYe" firstAttribute="top" secondItem="Lul-hl-iV7" secondAttribute="bottom" constant="18" id="qkz-NZ-HYC"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

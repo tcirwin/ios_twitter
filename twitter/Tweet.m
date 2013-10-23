@@ -45,6 +45,11 @@
     return [[self.data valueOrNilForKeyPath:@"user"] valueOrNilForKeyPath:@"name"];
 }
 
+- (NSString *)screenName
+{
+    return [[self.data valueOrNilForKeyPath:@"user"] valueOrNilForKeyPath:@"screen_name"];
+}
+
 - (NSURL *)userImageURL
 {
     return [NSURL URLWithString:[[self.data valueOrNilForKeyPath:@"user"] valueOrNilForKeyPath:@"profile_image_url"]];

@@ -9,6 +9,7 @@
 #import "TweetDetailViewController.h"
 #import "Common.h"
 #import <UIImageView+AFNetworking.h>
+#import "ComposeViewController.h"
 
 #define RETWEET 0
 #define REPLY 1
@@ -66,6 +67,14 @@
     }];
 }
 
+- (void)reply
+{
+    ComposeViewController *compose = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" andReplyId:_tweet.tweetId andRepliedUsername:_tweet.screenName];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:compose];
+    
+    [self presentViewController:nav animated:YES completion:nil];
+}
+
 - (IBAction)tappedActionBar:(UISegmentedControl *)sender
 {
     switch ([sender selectedSegmentIndex]) {
@@ -73,7 +82,7 @@
             [self retweet];
             break;
         case REPLY:
-            //[self reply];
+            [self reply];
             break;
         case FAVORITE:
             //[self favorite];

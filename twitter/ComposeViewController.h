@@ -10,4 +10,6 @@
 
 @interface ComposeViewController : UIViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil andReplyId:(NSString *)replyId andRepliedUsername:(NSString *)username;
+
 @end

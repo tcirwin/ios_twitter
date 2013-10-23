@@ -18,6 +18,7 @@
 - (NSString *)text;
 - (NSString *)timestamp;
 - (NSString *)username;
+- (NSString *)screenName;
 - (NSURL *)userImageURL;
 
 @end

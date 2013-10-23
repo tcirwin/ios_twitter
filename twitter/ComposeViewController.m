@@ -9,6 +9,10 @@
 #import "ComposeViewController.h"
 
 @interface ComposeViewController ()
+{
+    NSString *_replyId;
+    NSString *_screenName;
+}
 
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
 
@@ -25,6 +29,16 @@
     return self;
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil andReplyId:(NSString *)replyId andRepliedUsername:(NSString *)screenName
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nil];
+    if (self) {
+        _replyId = replyId;
+        _screenName = screenName;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -37,17 +51,30 @@
     self.navigationItem.leftBarButtonItem = closeButton;
     self.navigationItem.rightBarButtonItem = tweetButton;
     
+    if (_replyId) {
+        _tweetTextView.text = [NSString stringWithFormat:@"@%@", _screenName];
+    }
+    
     [_tweetTextView becomeFirstResponder];
 }
 
 - (void)postTweet
 {
-    [[TwitterClient instance] tweet:_tweetTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
-        NSLog(@"Success!");
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Failure!");
-    }];
+    if (!_replyId) {
+        [[TwitterClient instance] tweet:_tweetTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
+            NSLog(@"Success; posted tweet!");
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Failure: failed to post tweet!");
+        }];
+    } else {
+        [[TwitterClient instance] replyTo:_replyId withText:_tweetTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
+            NSLog(@"Success; replied to tweet: %@!", _replyId);
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Failure: failed to reply to tweet: %@!", _replyId);
+        }];
+    }
 }
 
 - (void)closeComposeModal
