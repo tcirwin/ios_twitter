@@ -20,6 +20,17 @@
     return tweets;
 }
 
+- (id)initWithDictionary:(NSDictionary *)data
+{
+    self = [super initWithDictionary:data];
+    
+    if (self) {
+        _favorited = [[self.data valueOrNilForKeyPath:@"favorited"] boolValue];
+    }
+    
+    return self;
+}
+
 - (NSString *) tweetId
 {
     return [self.data valueOrNilForKeyPath:@"id_str"];

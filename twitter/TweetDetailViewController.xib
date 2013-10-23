@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TweetDetailViewController">
             <connections>
+                <outlet property="actionBar" destination="wXr-ul-7Rt" id="2ep-jS-rYi"/>
                 <outlet property="timestampLabel" destination="Sez-qf-jhn" id="bRn-Lz-MME"/>
                 <outlet property="tweetTextLabel" destination="kdD-gd-Zkj" id="IHA-3f-Vam"/>
                 <outlet property="userImageView" destination="6IG-rQ-UHX" id="Ivg-34-m1o"/>

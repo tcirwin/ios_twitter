@@ -82,6 +82,16 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
     [self postPath:[NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId] parameters:nil success:success failure:failure];
 }
 
+- (void)favorite:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [self postPath:@"1.1/favorites/create.json" parameters:@{@"id": tweetId} success:success failure:failure];
+}
+
+- (void)unFavorite:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
+{
+    [self postPath:@"1.1/favorites/destroy.json" parameters:@{@"id": tweetId} success:success failure:failure];
+}
+
 #pragma mark - Private methods
 
 - (void)setAccessToken:(AFOAuth1Token *)accessToken {

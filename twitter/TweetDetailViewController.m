@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *actionBar;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 @property (strong, nonatomic) Tweet *tweet;
 
@@ -45,6 +46,9 @@
     _usernameLabel.text = _tweet.username;
     _tweetTextLabel.text = _tweet.text;
     _timestampLabel.text = _tweet.timestamp;
+    
+    NSString *favLabel = _tweet.favorited ? @"Favorited" : @"Favorite";
+    [_actionBar setTitle:favLabel forSegmentAtIndex:FAVORITE];
     
     [_tweetTextLabel sizeToFit];
     
@@ -75,6 +79,27 @@
     [self presentViewController:nav animated:YES completion:nil];
 }
 
+- (void)favorite
+{
+    if (_tweet.favorited) {
+        [[TwitterClient instance] unFavorite:_tweet.tweetId success:^(AFHTTPRequestOperation *operation, id response) {
+            NSLog(@"Success: unfavorited tweet: %@", _tweet.tweetId);
+            [_actionBar setTitle:@"Favorite" forSegmentAtIndex:FAVORITE];
+            _tweet.favorited = NO;
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Failure: didn't favorite tweet: %@", _tweet.tweetId);
+        }];
+    } else {
+        [[TwitterClient instance] favorite:_tweet.tweetId success:^(AFHTTPRequestOperation *operation, id response) {
+            NSLog(@"Success: favorited tweet: %@", _tweet.tweetId);
+            [_actionBar setTitle:@"Favorited" forSegmentAtIndex:FAVORITE];
+            _tweet.favorited = YES;
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Failure: didn't favorite tweet: %@", _tweet.tweetId);
+        }];
+    }
+}
+
 - (IBAction)tappedActionBar:(UISegmentedControl *)sender
 {
     switch ([sender selectedSegmentIndex]) {
@@ -85,7 +110,7 @@
             [self reply];
             break;
         case FAVORITE:
-            //[self favorite];
+            [self favorite];
             break;
     }
 }

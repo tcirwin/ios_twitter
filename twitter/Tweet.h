@@ -10,6 +10,7 @@
 
 @interface Tweet : RestObject
 
+@property (nonatomic) BOOL favorited;
 @property (nonatomic, strong, readonly) NSString *text;
 
 + (NSMutableArray *)tweetsWithArray:(NSArray *)array;
