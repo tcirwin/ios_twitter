@@ -63,6 +63,7 @@
     if (!_replyId) {
         [[TwitterClient instance] tweet:_tweetTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
             NSLog(@"Success; posted tweet!");
+            [self.delegate reload];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Failure: failed to post tweet!");
@@ -70,6 +71,7 @@
     } else {
         [[TwitterClient instance] replyTo:_replyId withText:_tweetTextView.text success:^(AFHTTPRequestOperation *operation, id response) {
             NSLog(@"Success; replied to tweet: %@!", _replyId);
+            [self.delegate reload];
             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Failure: failed to reply to tweet: %@!", _replyId);

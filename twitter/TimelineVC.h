@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataReloadable.h"
 
-@interface TimelineVC : UITableViewController
+@interface TimelineVC : UITableViewController <DataReloadable>
 
 @end

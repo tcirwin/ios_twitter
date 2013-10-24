@@ -59,6 +59,7 @@
 - (void)openComposeModal
 {
     ComposeViewController *compose = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" bundle:nil];
+    compose.delegate = self;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:compose];
     
     [self presentViewController:nav animated:YES completion:nil];
@@ -107,6 +108,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     Tweet *tweet = self.tweets[indexPath.row];
     TweetDetailViewController *detail = [[TweetDetailViewController alloc] initWithNibName:@"TweetDetailViewController" andModel:tweet bundle:nil];
+    detail.delegate = self;
     
     [self.navigationController pushViewController:detail animated:YES];
 }

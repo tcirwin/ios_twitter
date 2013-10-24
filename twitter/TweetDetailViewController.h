@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataReloadable.h"
 
 @interface TweetDetailViewController : UIViewController
+
+@property (weak, nonatomic) id<DataReloadable> delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil andModel:(Tweet *)tweet bundle:(NSBundle *)nibBundleOrNil;
 

@@ -74,6 +74,7 @@
 - (void)reply
 {
     ComposeViewController *compose = [[ComposeViewController alloc] initWithNibName:@"ComposeViewController" andReplyId:_tweet.tweetId andRepliedUsername:_tweet.screenName];
+    compose.delegate = _delegate;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:compose];
     
     [self presentViewController:nav animated:YES completion:nil];

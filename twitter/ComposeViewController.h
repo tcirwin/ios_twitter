@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataReloadable.h"
 
 @interface ComposeViewController : UIViewController
+
+@property (weak, nonatomic) id<DataReloadable> delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil andReplyId:(NSString *)replyId andRepliedUsername:(NSString *)username;
 
